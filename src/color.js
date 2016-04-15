@@ -31,14 +31,14 @@ module.exports = function(){
 
 
       var cell = legendG.selectAll("." + classPrefix + "cell").data(type.data),
-        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell").style("opacity", 1);
+        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell")
         shapeEnter = cellEnter.append(shape).attr("class", classPrefix + "swatch"),
         shapes = cell.select("g." + classPrefix + "cell " + shape);
 
       //add event handlers
       helper.d3_addEvents(cellEnter, legendDispatcher);
 
-
+      cell.exit().remove();
 
       helper.d3_drawShapes(shape, shapes, shapeHeight, shapeWidth, shapeRadius, path);
 

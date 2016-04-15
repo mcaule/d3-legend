@@ -29,14 +29,14 @@ module.exports =  function(){
 
 
       var cell = legendG.selectAll("." + classPrefix + "cell").data(type.data),
-        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell").style("opacity", 1);
+        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell")
         shapeEnter = cellEnter.append(shape).attr("class", classPrefix + "swatch"),
         shapes = cell.select("g." + classPrefix + "cell " + shape);
 
       //add event handlers
       helper.d3_addEvents(cellEnter, legendDispatcher);
 
-
+      cell.exit().remove();
 
       //creates shape
       if (shape === "line"){
@@ -93,7 +93,7 @@ module.exports =  function(){
       helper.d3_placement(orient, cell, cellTrans, text, textTrans, labelAlign);
       helper.d3_title(svg, legendG, title, classPrefix);
 
-
+      
 
     }
 
