@@ -410,7 +410,7 @@ module.exports =  function(){
       //add event handlers
       helper.d3_addEvents(cellEnter, legendDispatcher);
 
-      cell.exit().transition().style("opacity", 0).remove();
+
 
       //creates shape
       if (shape === "line"){
@@ -467,7 +467,7 @@ module.exports =  function(){
       helper.d3_placement(orient, cell, cellTrans, text, textTrans, labelAlign);
       helper.d3_title(svg, legendG, title, classPrefix);
 
-      cell.transition().style("opacity", 1);
+
 
     }
 
