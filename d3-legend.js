@@ -32,14 +32,14 @@ module.exports = function(){
 
 
       var cell = legendG.selectAll("." + classPrefix + "cell").data(type.data),
-        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell").style("opacity", 1e-6);
+        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell").style("opacity", 1);
         shapeEnter = cellEnter.append(shape).attr("class", classPrefix + "swatch"),
         shapes = cell.select("g." + classPrefix + "cell " + shape);
 
       //add event handlers
       helper.d3_addEvents(cellEnter, legendDispatcher);
 
-      cell.exit().transition().style("opacity", 0).remove();
+
 
       helper.d3_drawShapes(shape, shapes, shapeHeight, shapeWidth, shapeRadius, path);
 
@@ -80,7 +80,7 @@ module.exports = function(){
       helper.d3_placement(orient, cell, cellTrans, text, textTrans, labelAlign);
       helper.d3_title(svg, legendG, title, classPrefix);
 
-      cell.transition().style("opacity", 1);
+      
 
     }
 
@@ -403,7 +403,7 @@ module.exports =  function(){
 
 
       var cell = legendG.selectAll("." + classPrefix + "cell").data(type.data),
-        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell").style("opacity", 1e-6);
+        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell").style("opacity", 1);
         shapeEnter = cellEnter.append(shape).attr("class", classPrefix + "swatch"),
         shapes = cell.select("g." + classPrefix + "cell " + shape);
 
@@ -604,7 +604,7 @@ module.exports = function(){
       legendG.enter().append('g').attr('class', classPrefix + 'legendCells');
 
       var cell = legendG.selectAll("." + classPrefix + "cell").data(type.data),
-        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell").style("opacity", 1e-6);
+        cellEnter = cell.enter().append("g", ".cell").attr("class", classPrefix + "cell").style("opacity", 1);
         shapeEnter = cellEnter.append(shape).attr("class", classPrefix + "swatch"),
         shapes = cell.select("g." + classPrefix + "cell " + shape);
 
@@ -612,7 +612,7 @@ module.exports = function(){
       helper.d3_addEvents(cellEnter, legendDispatcher);
 
       //remove old shapes
-      cell.exit().transition().style("opacity", 0).remove();
+
 
       helper.d3_drawShapes(shape, shapes, shapeHeight, shapeWidth, shapeRadius, type.feature);
       helper.d3_addText(legendG, cellEnter, type.labels, classPrefix)
@@ -642,7 +642,7 @@ module.exports = function(){
 
       helper.d3_placement(orient, cell, cellTrans, text, textTrans, labelAlign);
       helper.d3_title(svg, legendG, title, classPrefix);
-      cell.transition().style("opacity", 1);
+      
 
     }
 
